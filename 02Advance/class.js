@@ -16,11 +16,27 @@ class User {
     }
 }
 
-const john = new User("John", "Doe", 35);
+// Inheritance
+class Teacher extends User {
+    constructor(firstname, lastname, credit, subject) {
+        super(firstname, lastname, credit)
+        this.subject = subject;
+    }
+    getFullName(){  // method overriding
+        let fullname = `${this.firstname} ${this.lastname} is my full name and I teach ${this.subject}`; 
+        return fullname;
+    }
+    favDrink(name){
+        console.log(`My fav. drink is ${name}`);
+    }
+}
+
+
+const john = new Teacher("John", "Doe", 35, "javascript");
 // console.log(john);
 console.log(john.getFullName());
 john.editName("Johnny Doe");
 console.log(john.getFullName());
-
+john.favDrink("coke")
 // const jane = new User();
 // console.log(jane);
